@@ -1,8 +1,8 @@
 package com.raagpc
 
-class StringMarshmaler: Marshmaler {
-    override val type: MarshmalerType
-        get() = MarshmalerType.STRING
+class StringMarshaler: Marshaler {
+    override val type: MarshalerType
+        get() = MarshalerType.STRING
 
     private var value: String = ""
 

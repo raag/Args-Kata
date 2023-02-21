@@ -1,8 +1,8 @@
 package com.raagpc
 
-class IntegerMarshmaler: Marshmaler {
-    override val type: MarshmalerType
-        get() = MarshmalerType.INTEGER
+class IntegerMarshaler: Marshaler {
+    override val type: MarshalerType
+        get() = MarshalerType.INTEGER
 
     private var value: Int = 0
 

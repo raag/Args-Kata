@@ -2,7 +2,7 @@ package com.raagpc
 
 class Args {
 
-    private val marshmallers = mutableMapOf<String, Marshmaler>()
+    private val marshalers = mutableMapOf<String, Marshaler>()
 
     fun parseSchema(schema: String) {
         val tokens = schema.split(",")
@@ -19,20 +19,20 @@ class Args {
         }
     }
 
-    fun getInfo(flag: String): Marshmaler? {
-        return marshmallers[flag]
+    fun getInfo(flag: String): Marshaler? {
+        return marshalers[flag]
     }
 
     private fun parseBooleanSchema(token: String) {
-        marshmallers[token.substring(0, token.length - 1)] = BooleanMarshmaler()
+        marshalers[token.substring(0, token.length - 1)] = BooleanMarshaler()
     }
 
     private fun parseIntegerSchema(token: String) {
-        marshmallers[token.substring(0, token.length - 1)] = IntegerMarshmaler()
+        marshalers[token.substring(0, token.length - 1)] = IntegerMarshaler()
     }
 
     private fun parseStringSchema(token: String) {
-        marshmallers[token.substring(0, token.length - 1)] = StringMarshmaler()
+        marshalers[token.substring(0, token.length - 1)] = StringMarshaler()
     }
 
     fun parseArgs(args: String) {
@@ -43,20 +43,20 @@ class Args {
             if (arg.startsWith("-").not()) {
                 throw IllegalArgumentException("Invalid argument: $args")
             }
-            val marshaller = marshmallers[arg.substring(1)] ?: throw IllegalArgumentException("Invalid flag: $arg")
+            val marshaller = marshalers[arg.substring(1)] ?: throw IllegalArgumentException("Invalid flag: $arg")
             marshaller.setValue(argsIterator)
         }
     }
 
     fun getBooleanValue(flag: String): Boolean {
-        return marshmallers[flag]?.getValue() as Boolean
+        return marshalers[flag]?.getValue() as Boolean
     }
 
     fun getIntegerValue(flag: String): Int {
-        return marshmallers[flag]?.getValue() as Int
+        return marshalers[flag]?.getValue() as Int
     }
 
     fun getStringValue(flag: String): String {
-        return marshmallers[flag]?.getValue() as String
+        return marshalers[flag]?.getValue() as String
     }
 }

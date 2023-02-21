@@ -16,7 +16,7 @@ class ArgsTest {
         val args = Args()
         args.parseSchema("l@")
         val schemaInfo = args.getInfo("l")
-        assertEquals(MarshmalerType.BOOLEAN, schemaInfo?.type)
+        assertEquals(MarshalerType.BOOLEAN, schemaInfo?.type)
     }
 
     @Test
@@ -24,7 +24,7 @@ class ArgsTest {
         val args = Args()
         args.parseSchema("p#")
         val schemaInfo = args.getInfo("p")
-        assertEquals(MarshmalerType.INTEGER, schemaInfo?.type)
+        assertEquals(MarshalerType.INTEGER, schemaInfo?.type)
     }
 
     @Test
@@ -32,7 +32,7 @@ class ArgsTest {
         val args = Args()
         args.parseSchema("d*")
         val schemaInfo = args.getInfo("d")
-        assertEquals(MarshmalerType.STRING, schemaInfo?.type)
+        assertEquals(MarshalerType.STRING, schemaInfo?.type)
     }
 
     @Test
@@ -40,11 +40,11 @@ class ArgsTest {
         val args = Args()
         args.parseSchema("l@,p#,d*")
         val schemaInfo1 = args.getInfo("l")
-        assertEquals(MarshmalerType.BOOLEAN, schemaInfo1?.type)
+        assertEquals(MarshalerType.BOOLEAN, schemaInfo1?.type)
         val schemaInfo2 = args.getInfo("p")
-        assertEquals(MarshmalerType.INTEGER, schemaInfo2?.type)
+        assertEquals(MarshalerType.INTEGER, schemaInfo2?.type)
         val schemaInfo3 = args.getInfo("d")
-        assertEquals(MarshmalerType.STRING, schemaInfo3?.type)
+        assertEquals(MarshalerType.STRING, schemaInfo3?.type)
     }
 
     @Test

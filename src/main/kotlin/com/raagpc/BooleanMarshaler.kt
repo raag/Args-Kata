@@ -1,8 +1,8 @@
 package com.raagpc
 
-class BooleanMarshmaler : Marshmaler {
-    override val type: MarshmalerType
-        get() = MarshmalerType.BOOLEAN
+class BooleanMarshaler : Marshaler {
+    override val type: MarshalerType
+        get() = MarshalerType.BOOLEAN
 
     private var value: Boolean = false
 
